@@ -1,0 +1,33 @@
+{
+  "name": "cricscore",
+  "version": "1.0.0",
+  "description": "Cricket score dashboard",
+  "main": "webpack.config.js",
+  "scripts": {
+    "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
+    "start": "http-server",
+    "start:dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serendipitist/cricscore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/serendipitist/cricscore/issues"
+  },
+  "homepage": "https://github.com/serendipitist/cricscore#readme",
+  "devDependencies": {
+    "babel-loader": "^7.1.2",
+    "webcomponentsjs": "^1.0.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
+  }
+}
