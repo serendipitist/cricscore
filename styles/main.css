@@ -1,0 +1,26 @@
+body {
+      font-family: 'Helvetica Neue';
+
+}
+
+.cricket-score-container {
+  background-color: #daebf0; /* Needed for IEs */
+  -moz-box-shadow: 5px 5px 5px #e4e4e4;
+  -webkit-box-shadow: 5px 5px 5px #e4e4e4;
+  box-shadow: 5px 5px 5px #e4e4e4;
+  text-align: center;
+  margin: 0 auto;
+  cursor:  move;
+}
+
+#container {
+  position: absolute;
+  text-align: center;
+  display: block;
+   margin: 0 auto;
+  width: 100%;
+}
+
+.toggle-scorecard {
+  margin-top: 18%;
+}

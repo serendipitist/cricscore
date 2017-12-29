@@ -1,11 +1,35 @@
-<!Doctype>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cricket Score</title>
+  <title>Cricket Score </title>
+  <link rel="stylesheet" href="./styles/main.css" type="text/css">
+  <script src="./js/main.js" type="text/javascript"></script>
 </head>
 <body>
-  <FlagIcon></FlagIcon>
+  <div id="container" style="display: block">
+    <div class="cricket-score-container" id="header">
+      <picture>
+        <source media="(min-width: 650px)" srcset="./cricket.jpeg">
+        <source media="(min-width: 465px)" srcset="./cricket.jpeg">
+        <img src="./cricket.jpeg" alt="cricket" style="width:auto;">
+      </picture>
+        <h1 class="cricket">Cricket Score Details</h1>
+        <score-card></score-card>
+
+    </div>
+  </div>
+    <button type="text" class="toggle-scorecard" onclick="toggle_visibility('container');"> Toggle score card</button>
+
+  <script>
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+   }
+  </script>
   <script src="build/main.bundle.js"></script>
 </body>
-</html>
+</html
