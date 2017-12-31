@@ -4,7 +4,7 @@ class ScoreCard extends HTMLElement {
     super();
 
     this.shadow = this.createShadowRoot();
-    this._stage = 0;
+    this._complete = "Loading Match details ...";
   }
 
   get countryScoreDetails() {
@@ -24,11 +24,33 @@ class ScoreCard extends HTMLElement {
          </picture>`;
   }
 
+  get complete() {
+    return this._complete;
+  }
+
+  set complete(val) {
+    this.setAttribute('complete', val);
+  }
+
+  static get observedAttributes() {
+    return [ 'complete' ];
+  }
+
+  attributeChangedCallback(name, oldVal, newVal) {
+    var domNode  = this.shadow.querySelector('.card-content');
+
+        if(name == 'complete') {
+        let sequence = [this.countryScoreDetails, this.matchDetails, this.MatchImage];
+        var i = 0;  // the index of the current item to show
+        setInterval(function() {            // setInterval makes it run repeatedly
+        domNode.innerHTML = sequence[i++];    // get the item and increment
+        if (i == sequence.length) i = 0;   // reset to first element if you've reached the end
+        }, 4000);
+    }
+  }
 
   get renderSequence() {
-    console.log(document);
-    let sequence = [this.countryScoreDetails, this.matchDetails, this.MatchImage];
-    return sequence;
+
   }
 
 
@@ -45,7 +67,7 @@ class ScoreCard extends HTMLElement {
       </style>
       <div class="score-container">
         <h1 class="card-text">Cricket Score Card</h1>
-        <div id="y" class="card-content">${this.renderSequence[0]}</div>
+        <div id="y" class="card-content">${this.complete}</div>
       </div>
     `;
     this.shadow.innerHTML = template;
