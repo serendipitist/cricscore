@@ -37,7 +37,7 @@ body {
 }
 
 .resizable {
-  overflow: scroll;
+  overflow: hidden;
   resize: both;
   max-width: 400px;
   max-height: 460px;
