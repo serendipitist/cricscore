@@ -2,9 +2,8 @@ class ScoreCard extends HTMLElement {
 
   constructor() {
     super();
-
     this.shadow = this.createShadowRoot();
-    this._complete = "Loading Match details ...";
+    this._stage = "Loading Match details ...";
   }
 
   get countryScoreDetails() {
@@ -24,50 +23,44 @@ class ScoreCard extends HTMLElement {
          </picture>`;
   }
 
-  get complete() {
-    return this._complete;
+  get stage() {
+    return this._stage;
   }
 
-  set complete(val) {
-    this.setAttribute('complete', val);
+  set stage(val) {
+    this.setAttribute('stage', val);
   }
 
   static get observedAttributes() {
-    return [ 'complete' ];
+    return [ 'stage' ];
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
     var domNode  = this.shadow.querySelector('.card-content');
-
-        if(name == 'complete') {
-        let sequence = [this.countryScoreDetails, this.matchDetails, this.MatchImage];
-        var i = 0;  // the index of the current item to show
-        setInterval(function() {            // setInterval makes it run repeatedly
-        domNode.innerHTML = sequence[i++];    // get the item and increment
-        if (i == sequence.length) i = 0;   // reset to first element if you've reached the end
-        }, 4000);
+    if(name == 'stage') {
+    let sequence = [this.countryScoreDetails, this.matchDetails, this.MatchImage];
+    var i = 0;
+    setInterval(function() {
+    domNode.innerHTML = sequence[i++];
+    if (i == sequence.length) i = 0;   // reset to first element if you've reached the end
+      }, 4000);
     }
   }
-
-  get renderSequence() {
-
-  }
-
-
 
   connectedCallback() {
     var template = `
       <style>
       .card-text {
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        margin: 10px 0 30px 0;
+      }
+      .versus {
+        color: red;
+        font-weight: bold;
       }
       </style>
       <div class="score-container">
         <h1 class="card-text">Cricket Score Card</h1>
-        <div id="y" class="card-content">${this.complete}</div>
+        <div id="y" class="card-content">${this.stage}</div>
       </div>
     `;
     this.shadow.innerHTML = template;

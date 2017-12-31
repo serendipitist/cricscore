@@ -28,5 +28,17 @@ body {
 }
 
 .toggle-scorecard {
-  margin-top: 18%;
+  margin-top: 5%;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+}
+
+.resizable {
+  overflow: scroll;
+  resize: both;
+  max-width: 400px;
+  max-height: 460px;
 }
