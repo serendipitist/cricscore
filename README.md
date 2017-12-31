@@ -9,5 +9,6 @@ currently available only for chrome  Version 63.0.3239.108
 Webcomponent can hideable , resizable and dragable
 
 Dev Setup instructions:
-npm install
-npm run start:dev
+`npm install`
+
+`npm run start:dev`
