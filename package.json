@@ -20,6 +20,7 @@
   "homepage": "https://github.com/serendipitist/cricscore#readme",
   "devDependencies": {
     "babel-loader": "^7.1.2",
+    "lodash": "^4.17.4",
     "webcomponentsjs": "^1.0.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7"
